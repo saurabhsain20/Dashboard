@@ -1,0 +1,11 @@
+.root {
+    width: 275,
+  }
+
+  .bullet {
+    display: inline-block,
+    
+  }
+  title {
+    font-size: 14,
+  }
