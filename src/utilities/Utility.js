@@ -50,3 +50,19 @@ export const lasthMonthData = (data) => {
 export const getFormattedDate = (date, format) => {
     return moment(date).format(format);
 }
+
+export const getDataForChart = (data) => {
+    let chartData = [];
+    data.map(elem => {
+      return  elem.amount && chartData.push(elem.amount)
+    })
+    return chartData;
+}
+
+export const getDateForChart = (data) => {
+    let dateArr = [];
+    data.map(elem => {
+        return elem.timeStamp && dateArr.push(getFormattedDate(elem.timeStamp, 'DD MMM YY'));
+    })
+    return dateArr;
+}

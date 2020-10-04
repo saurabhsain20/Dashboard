@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Chart from '../Chart/Chart';
 import TableComponent from '../TableComponent/TableComponent';
 import {tableArray} from '../../data/data';
-import { getTodaysData, currentWeekData, currentMonthData, lasthMonthData } from '../../utilities/Utility';
+import { getTodaysData, currentWeekData, currentMonthData, lasthMonthData, getDataForChart , getDateForChart } from '../../utilities/Utility';
 
 const useStyle = makeStyles({
     rootContainer: {
@@ -155,10 +155,13 @@ function Home() {
                 amount: elem.amount,
                 quantity: elem.quantity,
                 name: elem.name,
+                timeStamp: elem.timeStamp
             })
         })
         return newOrderData;
         }
+    
+        console.log(getDateForChart(tableArray));
 
     return (
         <div className={classes.rootContainer}>
@@ -202,11 +205,11 @@ function Home() {
             <TableComponent data={getBottomFive(orderData(tableArray))}/>
         </div>
         <div className={classes.tableContainer}>
-            <h1 className={classes.text}>Bottom Five Order Table</h1>
+            <h1 className={classes.text}>Top Five User Table</h1>
             <TableComponent data={getTopFive(userData(tableArray))}/>
         </div>
         <div className={classes.tableContainer}>
-            <h1 className={classes.text}>Bottom Five Order Table</h1>
+            <h1 className={classes.text}>Bottom Five User Table</h1>
             <TableComponent data={getBottomFive(userData(tableArray))}/>
         </div>
         </div>
